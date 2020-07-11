@@ -1,17 +1,12 @@
-export type Dokokara = {
-  channel: "OrganicSearch" | "Display" | "Direct" | "Email" | "Referral" | "Social" | "Paid Search" | "Other";
-  source: string;
+export type CampaignObject = {
   medium: string;
+  source: string;
   campaignName: string;
   term?: string;
   content?: string;
-  query?: string;
 };
 
-export type CampaignURLQueryObject = {
-  medium: string;
-  source: string;
-  campaignName: string;
-  term?: string;
-  content?: string;
+export type Dokokara = CampaignObject & {
+  channel: "OrganicSearch" | "Display" | "Direct" | "Email" | "Referral" | "Social" | "Paid Search" | "Other";
+  query?: string;
 };

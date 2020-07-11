@@ -1,8 +1,8 @@
 import { parse, ParsedUrlQuery } from "querystring";
 import { DokokaraBuilder } from "./builder";
-import { Dokokara, CampaignURLQueryObject } from "./dokokara.types";
+import { Dokokara, CampaignObject } from "./dokokara.types";
 
-function cuqob(puq: ParsedUrlQuery): CampaignURLQueryObject | null {
+function cuqob(puq: ParsedUrlQuery): CampaignObject | null {
   if (!puq.utm_medium || !puq.utm_source || !puq.utm_campaign) return null;
   return {
     medium: puq.utm_medium as string,

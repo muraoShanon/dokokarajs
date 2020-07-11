@@ -31,4 +31,12 @@ describe("query", () => {
     expect(query(qs).campaignName).toBe("campaign.id");
     expect(query(qs).content).toBe("ad.id");
   });
+
+  test("google ad", () => {
+    const qs = "?utm_source=otherSource&utm_medium=otherMedium&utm_campaign=otherCampaign";
+    expect(query(qs).channel).toBe("Other");
+    expect(query(qs).medium).toBe("otherMedium");
+    expect(query(qs).source).toBe("otherSource");
+    expect(query(qs).campaignName).toBe("otherCampaign");
+  });
 });

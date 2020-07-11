@@ -1,13 +1,6 @@
 import { parse, ParsedUrlQuery } from "querystring";
-import { Dokokara } from "./dokokara.types";
-
-type CampaignURLQueryObject = {
-  medium: string;
-  source: string;
-  campaignName: string;
-  term?: string;
-  content?: string;
-};
+import { DokokaraBuilder } from "./builder";
+import { Dokokara, CampaignURLQueryObject } from "./dokokara.types";
 
 function cuqob(puq: ParsedUrlQuery): CampaignURLQueryObject | null {
   if (!puq.utm_medium || !puq.utm_source || !puq.utm_campaign) return null;
@@ -18,16 +11,6 @@ function cuqob(puq: ParsedUrlQuery): CampaignURLQueryObject | null {
     term: puq.utm_term as string,
     content: puq.utm_content as string,
   };
-}
-
-function DokokaraBuilder(cuqo: CampaignURLQueryObject): Dokokara {
-  if (cuqo.medium === "email") {
-    return Object.assign(cuqo, { channel: "Email" }) as Dokokara;
-  }
-
-  if (cuqo.medium === "cpm" || cuqo.medium === "cpc") {
-    return Object.assign(cuqo, { channel: "Display" }) as Dokokara;
-  }
 }
 
 export function query(qs: string): Dokokara | null {

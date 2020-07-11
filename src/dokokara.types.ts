@@ -7,3 +7,11 @@ export type Dokokara = {
   content?: string;
   query?: string;
 };
+
+export type CampaignURLQueryObject = {
+  medium: string;
+  source: string;
+  campaignName: string;
+  term?: string;
+  content?: string;
+};

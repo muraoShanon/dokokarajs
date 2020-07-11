@@ -9,4 +9,5 @@ export type CampaignObject = {
 export type Dokokara = CampaignObject & {
   channel: "OrganicSearch" | "Display" | "Direct" | "Email" | "Referral" | "Social" | "Paid Search" | "Other";
   query?: string;
+  referrer?: string;
 };

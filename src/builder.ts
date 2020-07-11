@@ -1,11 +1,25 @@
-import { Dokokara, CampaignURLQueryObject } from "./dokokara.types";
+import { Dokokara, CampaignObject } from "./dokokara.types";
 
-export function DokokaraBuilder(cuqo: CampaignURLQueryObject): Dokokara {
-  if (cuqo.medium === "email") {
-    return Object.assign(cuqo, { channel: "Email" }) as Dokokara;
-  }
+function assign(co: CampaignObject, channelName: string): Dokokara {
+  return Object.assign(co, { channel: channelName }) as Dokokara;
+}
 
-  if (cuqo.medium === "cpm" || cuqo.medium === "cpc") {
-    return Object.assign(cuqo, { channel: "Display" }) as Dokokara;
+export function DokokaraBuilder(co: CampaignObject): Dokokara {
+  switch (co.medium) {
+    case "organic":
+      return assign(co, "OrganicSearch");
+
+    case "email":
+      return assign(co, "Email");
+
+    case "cpm":
+    case "cpc":
+      return assign(co, "Display");
+
+    case "referral":
+      return assign(co, "Referral");
+
+    default:
+      return assign(co, "Other");
   }
 }

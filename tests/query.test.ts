@@ -11,6 +11,7 @@ describe("query", () => {
     expect(query(qs).medium).toBe("email");
     expect(query(qs).source).toBe("newsletter");
     expect(query(qs).campaignName).toBe("spring_sale");
+    expect(query(qs).query).toBe(qs);
   });
 
   test("facebook ad", () => {

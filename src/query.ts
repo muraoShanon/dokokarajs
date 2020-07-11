@@ -22,11 +22,11 @@ function cuqob(puq: ParsedUrlQuery): CampaignURLQueryObject | null {
 
 function DokokaraBuilder(cuqo: CampaignURLQueryObject): Dokokara {
   if (cuqo.medium === "email") {
-    return Object.assign({}, cuqo, { channel: "Email" }) as Dokokara;
+    return Object.assign(cuqo, { channel: "Email" }) as Dokokara;
   }
 
   if (cuqo.medium === "cpm" || cuqo.medium === "cpc") {
-    return Object.assign({}, cuqo, { channel: "Display" }) as Dokokara;
+    return Object.assign(cuqo, { channel: "Display" }) as Dokokara;
   }
 }
 
@@ -35,5 +35,5 @@ export function query(qs: string): Dokokara | null {
   const cuqo = cuqob(parsed);
   if (!cuqo) return null;
 
-  return DokokaraBuilder(cuqo);
+  return Object.assign(DokokaraBuilder(cuqo), { query: qs });
 }

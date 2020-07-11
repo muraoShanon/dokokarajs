@@ -5,4 +5,5 @@ export type Dokokara = {
   campaignName: string;
   term?: string;
   content?: string;
+  query?: string;
 };

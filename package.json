@@ -1,0 +1,32 @@
+{
+  "name": "dokokarajs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dokokara.js",
+  "scripts": {
+    "webpack": "webpack",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muraoShanon/dokokarajs.git"
+  },
+  "author": "murao@shanon.co.jp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muraoShanon/dokokarajs/issues"
+  },
+  "homepage": "https://github.com/muraoShanon/dokokarajs#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.4",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "eslint": "^7.4.0",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
+    "ts-loader": "^8.0.0",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

@@ -47,12 +47,10 @@ export function referrer(refstr: string): Dokokara | null {
     return DokokaraBuilder(scl);
   }
 
-  return DokokaraBuilder(
-    DokokaraBuilder({
-      medium: "referral",
-      source: hostName,
-      campaignName: "",
-      rawreferrer: refstr,
-    })
-  );
+  return DokokaraBuilder({
+    medium: "referral",
+    source: hostName,
+    campaignName: "",
+    rawreferrer: refstr,
+  });
 }

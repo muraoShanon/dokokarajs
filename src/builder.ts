@@ -39,6 +39,10 @@ function isOtherAdvertising(co: CampaignObject): boolean {
   return !!co.medium.match(/^(cpv|cpa|cpp|content-text)$/);
 }
 
+function isDirect(co: CampaignObject): boolean {
+  return co.medium === "direct";
+}
+
 function dokokaraTypeOf(co: CampaignObject): Dokokara["channel"] {
   if (isOrganic(co)) return "OrganicSearch";
   if (isEmail(co)) return "Email";
@@ -48,6 +52,7 @@ function dokokaraTypeOf(co: CampaignObject): Dokokara["channel"] {
   if (isSocial(co)) return "Social";
   if (isAffiliate(co)) return "Affiliate";
   if (isReferral(co)) return "Referral";
+  if (isDirect(co)) return "Direct";
   return null;
 }
 

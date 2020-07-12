@@ -4,6 +4,8 @@ export type CampaignObject = {
   campaignName: string;
   term?: string;
   content?: string;
+  rawquery?: string;
+  rawreferrer?: string;
 };
 
 export type Dokokara = CampaignObject & {
@@ -18,6 +20,4 @@ export type Dokokara = CampaignObject & {
     | "OtherAdvertising"
     | "Display"
     | "Other";
-  query?: string;
-  referrer?: string;
 };

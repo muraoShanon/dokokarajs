@@ -11,7 +11,7 @@ describe("referrer", () => {
     expect(referrer(refstr).channel).toBe("Referral");
     expect(referrer(refstr).medium).toBe("referral");
     expect(referrer(refstr).source).toBe("example.com");
-    expect(referrer(refstr).referrer).toBe(refstr);
+    expect(referrer(refstr).rawreferrer).toBe(refstr);
   });
 
   describe("OrganicSearch", () => {
@@ -20,7 +20,7 @@ describe("referrer", () => {
       expect(referrer(refstr).channel).toBe("OrganicSearch");
       expect(referrer(refstr).medium).toBe("organic");
       expect(referrer(refstr).source).toBe("google.com");
-      expect(referrer(refstr).referrer).toBe(refstr);
+      expect(referrer(refstr).rawreferrer).toBe(refstr);
     });
 
     test("https://google.com/", () => {
@@ -28,7 +28,7 @@ describe("referrer", () => {
       expect(referrer(refstr).channel).toBe("OrganicSearch");
       expect(referrer(refstr).medium).toBe("organic");
       expect(referrer(refstr).source).toBe("google.com");
-      expect(referrer(refstr).referrer).toBe(refstr);
+      expect(referrer(refstr).rawreferrer).toBe(refstr);
     });
 
     test("https://www.google.co.jp/", () => {
@@ -53,7 +53,7 @@ describe("referrer", () => {
       expect(referrer(refstr).channel).toBe("Social");
       expect(referrer(refstr).medium).toBe("social");
       expect(referrer(refstr).source).toBe("youtube.com");
-      expect(referrer(refstr).referrer).toBe(refstr);
+      expect(referrer(refstr).rawreferrer).toBe(refstr);
     });
 
     test("https://t.co/0mYfqKJEwQ?amp=1", () => {

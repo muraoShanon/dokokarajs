@@ -7,7 +7,17 @@ export type CampaignObject = {
 };
 
 export type Dokokara = CampaignObject & {
-  channel: "OrganicSearch" | "Display" | "Direct" | "Email" | "Referral" | "Social" | "Paid Search" | "Other";
+  channel:
+    | "Direct"
+    | "OrganicSearch"
+    | "Social"
+    | "Email"
+    | "Affiliate"
+    | "Referral"
+    | "PaidSearch"
+    | "OtherAdvertising"
+    | "Display"
+    | "Other";
   query?: string;
   referrer?: string;
 };

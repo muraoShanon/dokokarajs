@@ -4,22 +4,57 @@ function assign(co: CampaignObject, channelName: string): Dokokara {
   return Object.assign(co, { channel: channelName }) as Dokokara;
 }
 
+function isOrganic(co: CampaignObject): boolean {
+  return co.medium === "organic";
+}
+
+function isEmail(co: CampaignObject): boolean {
+  return co.medium === "email";
+}
+
+function isReferral(co: CampaignObject): boolean {
+  return co.medium === "referral";
+}
+
+function isSocial(co: CampaignObject): boolean {
+  return !!co.medium.match(/^(social|social-network|social-media|sm|social network|social media)$/);
+}
+
+function isAffiliate(co: CampaignObject): boolean {
+  return co.medium === "affiliate";
+}
+
+function isDisplay(co: CampaignObject): boolean {
+  if (co.medium.match(/^(display|cpm|banner)$/)) return true;
+  if (co.content?.match(/^(displayads)$/)) return true;
+
+  return false;
+}
+
+function isPaidSearch(co: CampaignObject): boolean {
+  return !!co.medium.match(/^(cpc|ppc|paidsearch)$/);
+}
+
+function isOtherAdvertising(co: CampaignObject): boolean {
+  return !!co.medium.match(/^(cpv|cpa|cpp|content-text)$/);
+}
+
+function dokokaraTypeOf(co: CampaignObject): Dokokara["channel"] {
+  if (isOrganic(co)) return "OrganicSearch";
+  if (isEmail(co)) return "Email";
+  if (isDisplay(co)) return "Display";
+  if (isPaidSearch(co)) return "PaidSearch";
+  if (isOtherAdvertising(co)) return "OtherAdvertising";
+  if (isSocial(co)) return "Social";
+  if (isAffiliate(co)) return "Affiliate";
+  if (isReferral(co)) return "Referral";
+  return null;
+}
+
 export function DokokaraBuilder(co: CampaignObject): Dokokara {
-  switch (co.medium) {
-    case "organic":
-      return assign(co, "OrganicSearch");
+  const type = dokokaraTypeOf(co);
 
-    case "email":
-      return assign(co, "Email");
+  if (type) return assign(co, type);
 
-    case "cpm":
-    case "cpc":
-      return assign(co, "Display");
-
-    case "referral":
-      return assign(co, "Referral");
-
-    default:
-      return assign(co, "Other");
-  }
+  return assign(co, "Other");
 }

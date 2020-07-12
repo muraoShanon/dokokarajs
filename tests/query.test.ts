@@ -1,4 +1,10 @@
-import { query } from "../src/query";
+import { query, getCampaignObject } from "../src/query";
+
+describe("getCampaignObject", () => {
+  test("null", () => {
+    expect(getCampaignObject("")).toBe(null);
+  });
+});
 
 describe("query", () => {
   test("null", () => {
@@ -11,7 +17,7 @@ describe("query", () => {
     expect(query(qs).medium).toBe("email");
     expect(query(qs).source).toBe("newsletter");
     expect(query(qs).campaignName).toBe("spring_sale");
-    expect(query(qs).query).toBe(qs);
+    expect(query(qs).rawquery).toBe(qs);
   });
 
   describe("Display", () => {

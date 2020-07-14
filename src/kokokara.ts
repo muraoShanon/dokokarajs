@@ -1,3 +1,3 @@
-export function kokokara(hostName: string, sameSiteList: string[]): boolean {
-  return !!sameSiteList.filter((site) => hostName === site).length;
+export function kokokara(referrer: string, sameSiteList: string[]): boolean {
+  return !!sameSiteList.filter((site) => referrer === site).length;
 }

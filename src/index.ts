@@ -1,6 +1,8 @@
 import { Dokokara } from "./dokokara.types";
 import { kokokara } from "./kokokara";
 import { DokokaraBuilder } from "./builder";
+import { query } from "./query";
+import { referrer } from "./referrer";
 
 const sameSiteList = [];
 
@@ -17,19 +19,24 @@ export function resetSameSiteList(): void {
 }
 
 export function dokokara(): Dokokara {
-  const hostname = location.hostname;
-  const referrer = document.referrer;
-  const query = location.search;
+  const lHostname = window.location.hostname;
+  const lReferrer = document.referrer;
+  const lQuery = location.search;
 
-  pushSameSiteList(hostname);
-  // console.log(hostname);
-  // console.log(sameSiteList);
-  if (kokokara(referrer, sameSiteList)) return null;
+  pushSameSiteList(lHostname);
+  if (kokokara(lReferrer, sameSiteList)) return null;
 
-  console.log("hostname:  ", hostname);
-  console.log("referrer:  ", referrer);
-  console.log("query:  ", query);
-  if (referrer === "" && query === "") {
+  if (lQuery === "" && lReferrer === "") {
     return DokokaraBuilder({ medium: "direct", source: "", campaignName: "" });
   }
+
+  if (lQuery !== "") {
+    return query(lQuery);
+  }
+
+  if (lReferrer !== "") {
+    return referrer(lReferrer);
+  }
+
+  return null;
 }

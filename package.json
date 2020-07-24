@@ -1,9 +1,10 @@
 {
   "name": "dokokarajs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dokokara.js",
   "scripts": {
+    "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   },

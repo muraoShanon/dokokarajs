@@ -4,7 +4,7 @@ import { DokokaraBuilder } from "./builder";
 import { query } from "./query";
 import { referrer } from "./referrer";
 
-const sameSiteList = [];
+const sameSiteList: string[] = [];
 
 export function pushSameSiteList(site: string): void {
   sameSiteList.push(site);
@@ -18,7 +18,7 @@ export function resetSameSiteList(): void {
   sameSiteList.length = 0;
 }
 
-export function dokokara(): Dokokara {
+export function dokokara(): Dokokara | null {
   const lHostname = window.location.hostname;
   const lReferrer = document.referrer;
   const lQuery = location.search;

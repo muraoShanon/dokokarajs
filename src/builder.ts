@@ -43,7 +43,7 @@ function isDirect(co: CampaignObject): boolean {
   return co.medium === "direct";
 }
 
-function dokokaraTypeOf(co: CampaignObject): Dokokara["channel"] {
+function dokokaraTypeOf(co: CampaignObject): Dokokara["channel"] | null {
   if (isOrganic(co)) return "OrganicSearch";
   if (isEmail(co)) return "Email";
   if (isDisplay(co)) return "Display";

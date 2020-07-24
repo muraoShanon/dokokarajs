@@ -2,7 +2,7 @@ import { parse } from "querystring";
 import { DokokaraBuilder } from "./builder";
 import { Dokokara, CampaignObject } from "./dokokara.types";
 
-export function getCampaignObject(queryString: string): CampaignObject {
+export function getCampaignObject(queryString: string): CampaignObject | null {
   const puq = parse(queryString.trim().replace(/^[?#&]/, ""));
 
   if (puq.utm_medium && puq.utm_source && puq.utm_campaign) {
@@ -30,7 +30,7 @@ export function getCampaignObject(queryString: string): CampaignObject {
   return null;
 }
 
-export function query(qs: string): Dokokara {
+export function query(qs: string): Dokokara | null {
   const cuqo = getCampaignObject(qs);
   if (!cuqo) return null;
 

@@ -1,6 +1,6 @@
 {
   "name": "dokokarajs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Webサイトの流入元を取得",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

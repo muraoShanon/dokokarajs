@@ -1,8 +1,8 @@
 import { Dokokara } from "./dokokara.types";
 import { kokokara } from "./kokokara";
-import { DokokaraBuilder } from "./builder";
 import { query } from "./query";
 import { referrer } from "./referrer";
+import { direct } from "./direct";
 
 const sameSiteList: string[] = [];
 
@@ -27,7 +27,7 @@ export function dokokara(): Dokokara | null {
   if (kokokara(lReferrer, sameSiteList)) return null;
 
   if (lQuery === "" && lReferrer === "") {
-    return DokokaraBuilder({ medium: "direct", source: "", campaignName: "" });
+    return direct();
   }
 
   if (lQuery !== "") {

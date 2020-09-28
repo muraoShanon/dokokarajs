@@ -15,6 +15,7 @@ function organic(hostName: string, refstr: string): CampaignObject | null {
     content: "",
     term: "",
     rawreferrer: refstr,
+    rawquery: "",
   };
 }
 
@@ -29,6 +30,7 @@ function social(hostName: string, refstr: string): CampaignObject | null {
     content: "social",
     term: "",
     rawreferrer: refstr,
+    rawquery: "",
   };
 }
 
@@ -51,6 +53,9 @@ export function referrer(refstr: string): Dokokara | null {
     medium: "referral",
     source: hostName,
     campaignName: "",
+    content: "",
+    term: "",
     rawreferrer: refstr,
+    rawquery: "",
   });
 }

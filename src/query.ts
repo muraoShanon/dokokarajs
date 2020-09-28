@@ -13,6 +13,7 @@ export function getCampaignObject(queryString: string): CampaignObject | null {
       term: (puq.utm_term ? puq.utm_term : "") as string,
       content: (puq.utm_content ? puq.utm_content : "") as string,
       rawquery: queryString,
+      rawreferrer: "",
     };
   }
 
@@ -24,6 +25,7 @@ export function getCampaignObject(queryString: string): CampaignObject | null {
       term: (puq.smp_term ? puq.smp_term : "") as string,
       content: (puq.smp_content ? puq.smp_content : "") as string,
       rawquery: queryString,
+      rawreferrer: "",
     };
   }
 

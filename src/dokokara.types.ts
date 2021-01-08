@@ -2,10 +2,10 @@ export type CampaignObject = {
   medium: string;
   source: string;
   campaignName: string;
-  term?: string;
-  content?: string;
-  rawquery?: string;
-  rawreferrer?: string;
+  term: string;
+  content: string;
+  rawquery: string;
+  rawreferrer: string;
 };
 
 export type Dokokara = CampaignObject & {

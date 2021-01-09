@@ -1,9 +1,9 @@
-import { parse } from "querystring";
+import { parse } from "query-string";
 import { DokokaraBuilder } from "./builder";
 import { Dokokara, CampaignObject } from "./dokokara.types";
 
 export function getCampaignObject(queryString: string): CampaignObject | null {
-  const puq = parse(queryString.trim().replace(/^[?#&]/, ""));
+  const puq = parse(queryString);
 
   if (puq.utm_medium && puq.utm_source && puq.utm_campaign) {
     return {

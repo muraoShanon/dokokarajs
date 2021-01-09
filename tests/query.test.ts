@@ -37,6 +37,7 @@ describe("query", () => {
       expect(query(qs)?.source).toBe("google");
       expect(query(qs)?.campaignName).toBe("campaign.id");
       expect(query(qs)?.content).toBe("displayads");
+      expect(query(qs)?.gclid).toBe("1234");
     });
   });
 
@@ -57,6 +58,7 @@ describe("query", () => {
       expect(query(qs)?.source).toBe("google");
       expect(query(qs)?.campaignName).toBe("campaign.id");
       expect(query(qs)?.content).toBe("");
+      expect(query(qs)?.gclid).toBe("1234");
     });
   });
 

@@ -23,6 +23,7 @@ export function getCampaignObject(queryString: string): CampaignObject | null {
       campaignName: puq.smp_campaign as string,
       term: (puq.smp_term ? puq.smp_term : "") as string,
       content: (puq.smp_content ? puq.smp_content : "") as string,
+      gclid: (puq.gclid ? puq.gclid : "") as string,
       rawquery: queryString,
     });
   }

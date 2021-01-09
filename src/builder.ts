@@ -1,4 +1,4 @@
-import { Dokokara, CampaignObject } from "./dokokara.types";
+import { Dokokara, CampaignObject, CampaignObjectOptinal } from "./dokokara.types";
 
 function assign(co: CampaignObject, channelName: string): Dokokara {
   return Object.assign(co, { channel: channelName }) as Dokokara;
@@ -54,6 +54,22 @@ function dokokaraTypeOf(co: CampaignObject): Dokokara["channel"] | null {
   if (isReferral(co)) return "Referral";
   if (isDirect(co)) return "Direct";
   return null;
+}
+
+export function campaignObjectBuilder(o: CampaignObjectOptinal): CampaignObject {
+  return {
+    ...{
+      medium: "",
+      source: "",
+      campaignName: "",
+      term: "",
+      content: "",
+      rawquery: "",
+      rawreferrer: "",
+      gclid: "",
+    },
+    ...o,
+  };
 }
 
 export function DokokaraBuilder(co: CampaignObject): Dokokara {

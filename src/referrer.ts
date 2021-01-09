@@ -1,4 +1,4 @@
-import { DokokaraBuilder } from "./builder";
+import { DokokaraBuilder, campaignObjectBuilder } from "./builder";
 import { Dokokara, CampaignObject } from "./dokokara.types";
 
 const organicList = ["google", "yahoo", "bing"];
@@ -8,30 +8,23 @@ function organic(hostName: string, refstr: string): CampaignObject | null {
   const list = organicList.filter((s) => hostName.match(s));
   if (!list.length) return null;
 
-  return {
+  return campaignObjectBuilder({
     medium: "organic",
     source: hostName,
-    campaignName: "",
-    content: "",
-    term: "",
     rawreferrer: refstr,
-    rawquery: "",
-  };
+  });
 }
 
 function social(hostName: string, refstr: string): CampaignObject | null {
   const list = socialList.filter((s) => hostName.match(s));
   if (!list.length) return null;
 
-  return {
+  return campaignObjectBuilder({
     medium: "social",
     source: hostName,
-    campaignName: "",
     content: "social",
-    term: "",
     rawreferrer: refstr,
-    rawquery: "",
-  };
+  });
 }
 
 export function referrer(refstr: string): Dokokara | null {
@@ -49,13 +42,11 @@ export function referrer(refstr: string): Dokokara | null {
     return DokokaraBuilder(scl);
   }
 
-  return DokokaraBuilder({
-    medium: "referral",
-    source: hostName,
-    campaignName: "",
-    content: "",
-    term: "",
-    rawreferrer: refstr,
-    rawquery: "",
-  });
+  return DokokaraBuilder(
+    campaignObjectBuilder({
+      medium: "referral",
+      source: hostName,
+      rawreferrer: refstr,
+    })
+  );
 }

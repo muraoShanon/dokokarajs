@@ -5,7 +5,6 @@ module.exports = {
     path: __dirname,
     filename: "dokokara.js",
     library: "dokokara",
-    libraryExport: "",
     libraryTarget: "global",
     globalObject: "this",
   },

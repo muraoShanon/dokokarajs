@@ -12,6 +12,7 @@
     "build": "tsc && webpack",
     "webpack": "webpack",
     "test": "jest",
+    "test:o": "jest -o",
     "test:watch": "jest --watch"
   },
   "repository": {

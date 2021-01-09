@@ -1,4 +1,4 @@
-import { DokokaraBuilder, campaignObjectBuilder } from "./builder";
+import { dokokaraBuilder, campaignObjectBuilder } from "./builder";
 import { Dokokara, CampaignObject } from "./dokokara.types";
 
 const organicList = ["google", "yahoo", "bing"];
@@ -35,14 +35,14 @@ export function referrer(refstr: string): Dokokara | null {
   const scl = social(hostName, refstr);
 
   if (ogn) {
-    return DokokaraBuilder(ogn);
+    return dokokaraBuilder(ogn);
   }
 
   if (scl) {
-    return DokokaraBuilder(scl);
+    return dokokaraBuilder(scl);
   }
 
-  return DokokaraBuilder(
+  return dokokaraBuilder(
     campaignObjectBuilder({
       medium: "referral",
       source: hostName,

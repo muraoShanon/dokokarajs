@@ -1,5 +1,5 @@
 import { parse } from "query-string";
-import { DokokaraBuilder, campaignObjectBuilder } from "./builder";
+import { dokokaraBuilder, campaignObjectBuilder } from "./builder";
 import { Dokokara, CampaignObject } from "./dokokara.types";
 
 export function getCampaignObject(queryString: string): CampaignObject | null {
@@ -34,5 +34,5 @@ export function query(qs: string): Dokokara | null {
   const cuqo = getCampaignObject(qs);
   if (!cuqo) return null;
 
-  return DokokaraBuilder(campaignObjectBuilder(cuqo));
+  return dokokaraBuilder(campaignObjectBuilder(cuqo));
 }

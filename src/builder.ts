@@ -72,7 +72,7 @@ export function campaignObjectBuilder(o: CampaignObjectOptinal): CampaignObject 
   };
 }
 
-export function DokokaraBuilder(co: CampaignObject): Dokokara {
+export function dokokaraBuilder(co: CampaignObject): Dokokara {
   const type = dokokaraTypeOf(co);
 
   if (type) return assign(co, type);

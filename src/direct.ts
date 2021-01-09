@@ -1,8 +1,8 @@
 import { Dokokara } from "./dokokara.types";
-import { DokokaraBuilder, campaignObjectBuilder } from "./builder";
+import { dokokaraBuilder, campaignObjectBuilder } from "./builder";
 
 export function direct(): Dokokara {
-  return DokokaraBuilder(
+  return dokokaraBuilder(
     campaignObjectBuilder({
       medium: "direct",
     })
